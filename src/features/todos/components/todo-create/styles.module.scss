@@ -1,0 +1,50 @@
+.form {
+  display: flex;
+  position: relative;
+
+  & > button[type='submit'] {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a0d9e5;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 13px;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  & > input {
+    width: 100%;
+    padding: 20px 65px 20px 20px;
+    font-size: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: darkgray;
+    }
+
+    &::placeholder {
+      font-size: 20px;
+      color: black;
+    }
+  }
+
+  & > span {
+    padding-left: 20px;
+    font-size: 14px;
+    color: darkred;
+  }
+}

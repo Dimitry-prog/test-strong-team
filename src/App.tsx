@@ -1,15 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import TodoList from './features/todos/components/todo-list';
+import TodoEdit from './features/todos/components/todo-edit';
 import TodoSingle from './features/todos/components/todo-single';
+import Todos from './features/todos/components/todos';
 
 const App = () => {
   return (
-    <main>
-      <Routes>
-        <Route path="/" element={<TodoList />} />
-        <Route path="/todos/:id" element={<TodoSingle />} />
-      </Routes>
-    </main>
+    <Routes>
+      <Route path="/" element={<Todos />} />
+      <Route path="/todos/:id" element={<TodoSingle />} />
+      <Route path="/todos/:id/edit" element={<TodoEdit />} />
+    </Routes>
   );
 };
 
