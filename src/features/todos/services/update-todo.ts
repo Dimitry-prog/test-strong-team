@@ -9,7 +9,7 @@ export const updateTodo = api.injectEndpoints({
         method: 'PATCH',
         body: data.body,
       }),
-      invalidatesTags: [{ type: 'Todos', id: 'LIST' }],
+      invalidatesTags: (result, error, arg) => [{ type: 'Todos', id: arg.id }],
     }),
   }),
 });

@@ -34,7 +34,7 @@ const TodoItem = ({ todo }: TodoItemProps) => {
         <label>
           <input onChange={handleToggleStatusIsDone} type="checkbox" checked={todo.isDone} />
         </label>
-        <h2>{todo.text}</h2>
+        {todo.isDone ? <s>{todo.text}</s> : <h2>{todo.text}</h2>}
       </div>
 
       <div className={styles.bot}>
