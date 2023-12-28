@@ -1,0 +1,45 @@
+.sort {
+  display: flex;
+  gap: 10px;
+  position: relative;
+
+  & > button {
+    min-width: 80px;
+    align-self: start;
+    font-size: 20px;
+  }
+}
+
+.list {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  right: 0;
+
+  &_open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+}
+
+.input {
+  width: 100%;
+  display: inline-block;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #a0d9e5;
+  }
+
+  & > input {
+    display: none;
+  }
+}

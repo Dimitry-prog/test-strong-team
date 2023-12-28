@@ -6,17 +6,28 @@ import { TodoType } from '../types';
 type TodoStateType = {
   todos: TodoType[];
   todo: TodoType | null;
+  searchQuery: string;
+  sortingQuery: string;
 };
 
 const initialState: TodoStateType = {
   todos: [],
   todo: null,
+  searchQuery: '',
+  sortingQuery: '',
 };
 
 const todoSlice = createSlice({
   name: 'todoSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchQuery: (state, { payload }: { payload: string }) => {
+      state.searchQuery = payload;
+    },
+    setSortingQuery: (state, { payload }: { payload: string }) => {
+      state.sortingQuery = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addMatcher(getTodos.endpoints.getTodos.matchFulfilled, (state, { payload }) => {
       state.todos = payload;

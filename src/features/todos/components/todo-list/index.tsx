@@ -1,9 +1,10 @@
 import styles from './styles.module.scss';
-import { useGetTodosQuery } from '../../services/get-todos.ts';
+import { useFiltrationTodos } from '../../hooks/useFiltrationTodos.ts';
 import TodoItem from '../todo-item';
 
 const TodoList = () => {
-  const { data: todos, isLoading } = useGetTodosQuery('');
+  const { todos, isLoading } = useFiltrationTodos();
+  console.log(todos);
 
   return (
     <div className={styles.container}>
