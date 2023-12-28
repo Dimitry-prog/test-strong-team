@@ -5,7 +5,7 @@ First, clone the repo
 Second, run the development server:
 
 ```bash
-npm run dev
+npm run dev // localhost:5173
 # or
 yarn dev
 # or
