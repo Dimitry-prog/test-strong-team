@@ -1,6 +1,8 @@
 import styles from './styles.module.scss';
 import TodoCreate from '../todo-create';
+import TodoLimit from '../todo-limit-per-page';
 import TodoList from '../todo-list';
+import TodoPagination from '../todo-pagination';
 import TodoSearch from '../todo-search';
 import TodoSorting from '../todo-sorting';
 
@@ -13,6 +15,10 @@ const Todos = () => {
       <div className={styles.filters}>
         <TodoSearch />
         <TodoSorting />
+      </div>
+      <div className={styles.pagination}>
+        <TodoPagination />
+        <TodoLimit />
       </div>
     </section>
   );

@@ -1,17 +1,26 @@
-.sort {
+.limit {
   display: flex;
   gap: 10px;
   position: relative;
+  justify-self: flex-end;
+}
+
+.top {
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+
+  & > p {
+    font-size: 20px;
+  }
 
   & > button {
-    min-width: 80px;
     align-self: start;
     font-size: 20px;
   }
 }
 
 .list {
-  width: 120px;
   display: flex;
   flex-direction: column;
   background-color: darkgray;

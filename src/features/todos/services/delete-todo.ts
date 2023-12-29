@@ -8,7 +8,10 @@ export const deleteTodo = api.injectEndpoints({
         url: `/todos/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: [{ type: 'Todos', id: 'LIST' }],
+      invalidatesTags: (result, error, id) => [
+        { type: 'Todos', id },
+        { type: 'Todos', id: 'LIST' },
+      ],
     }),
   }),
 });

@@ -5,6 +5,7 @@ export const getTodoById = api.injectEndpoints({
   endpoints: (builder) => ({
     getTodoById: builder.query<TodoType, string>({
       query: (id) => `/todos/${id}`,
+      providesTags: (result, error, id) => [{ type: 'Todos', id }],
     }),
   }),
 });

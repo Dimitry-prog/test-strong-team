@@ -4,7 +4,6 @@ import TodoItem from '../todo-item';
 
 const TodoList = () => {
   const { todos, isLoading } = useFiltrationTodos();
-  console.log(todos);
 
   return (
     <div className={styles.container}>

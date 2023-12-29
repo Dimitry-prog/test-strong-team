@@ -1,10 +1,9 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import styles from './styles.module.scss';
 import { useAppDispatch } from '../../../../shared/store/store.ts';
 import { todosActions } from '../../slices';
 
 const TodoSorting = () => {
-  const [sorting, setSorting] = useState('');
   const [isOpenSorting, setIsOpenSorting] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -13,13 +12,9 @@ const TodoSorting = () => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSorting(e.target.value);
+    dispatch(todosActions.setSortingQuery(e.target.value));
     handleCloseSorting();
   };
-
-  useEffect(() => {
-    dispatch(todosActions.setSortingQuery(sorting));
-  }, [sorting]);
 
   return (
     <section className={styles.sort}>

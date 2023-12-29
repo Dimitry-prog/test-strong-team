@@ -8,6 +8,8 @@ type TodoStateType = {
   todo: TodoType | null;
   searchQuery: string;
   sortingQuery: string;
+  pageQuery: number;
+  limitQuery: number;
 };
 
 const initialState: TodoStateType = {
@@ -15,6 +17,8 @@ const initialState: TodoStateType = {
   todo: null,
   searchQuery: '',
   sortingQuery: '',
+  pageQuery: 1,
+  limitQuery: 2,
 };
 
 const todoSlice = createSlice({
@@ -26,6 +30,12 @@ const todoSlice = createSlice({
     },
     setSortingQuery: (state, { payload }: { payload: string }) => {
       state.sortingQuery = payload;
+    },
+    setPageQuery: (state, { payload }: { payload: number }) => {
+      state.pageQuery = payload;
+    },
+    setLimitQuery: (state, { payload }: { payload: number }) => {
+      state.limitQuery = payload;
     },
   },
   extraReducers: (builder) => {
