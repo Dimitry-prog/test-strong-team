@@ -14,13 +14,17 @@ const TodoSearch = () => {
   };
 
   useEffect(() => {
-    dispatch(todosActions.setSearchQuery(debouncedValue));
+    dispatch(
+      todosActions.setQuery({
+        q: debouncedValue,
+      })
+    );
   }, [debouncedValue]);
 
   return (
     <section className={styles.search}>
       <div className={styles.input}>
-        <input value={search} onChange={handleChange} type="text" placeholder="Search" />
+        <input value={search} onChange={handleChange} name="q" type="text" placeholder="Search" />
       </div>
     </section>
   );

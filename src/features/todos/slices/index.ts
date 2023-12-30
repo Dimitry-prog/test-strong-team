@@ -10,6 +10,9 @@ type TodoStateType = {
   sortingQuery: string;
   pageQuery: number;
   limitQuery: number;
+  query: {
+    [K: string]: string;
+  };
 };
 
 const initialState: TodoStateType = {
@@ -19,6 +22,12 @@ const initialState: TodoStateType = {
   sortingQuery: '',
   pageQuery: 1,
   limitQuery: 2,
+  query: {
+    page: '1',
+    limit: '2',
+    q: '',
+    sort: '',
+  },
 };
 
 const todoSlice = createSlice({
@@ -36,6 +45,18 @@ const todoSlice = createSlice({
     },
     setLimitQuery: (state, { payload }: { payload: number }) => {
       state.limitQuery = payload;
+    },
+    setQuery: (
+      state,
+      {
+        payload,
+      }: {
+        payload: {
+          [K: string]: string;
+        };
+      }
+    ) => {
+      state.query = Object.assign(state.query, payload);
     },
   },
   extraReducers: (builder) => {

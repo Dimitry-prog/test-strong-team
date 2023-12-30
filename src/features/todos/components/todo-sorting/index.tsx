@@ -12,7 +12,11 @@ const TodoSorting = () => {
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch(todosActions.setSortingQuery(e.target.value));
+    dispatch(
+      todosActions.setQuery({
+        [e.target.name]: e.target.value,
+      })
+    );
     handleCloseSorting();
   };
 

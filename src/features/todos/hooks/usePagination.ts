@@ -4,24 +4,19 @@ import { useGetTodosQuery } from '../services/get-todos.ts';
 import { todosActions } from '../slices';
 
 export const usePagination = () => {
-  const { queryForCount, pageQuery, limitQuery } = useQuery();
+  const { queryForCount, page, limit } = useQuery();
   const { data: todos, isLoading } = useGetTodosQuery(queryForCount);
   const dispatch = useAppDispatch();
-  const totalPages = Math.ceil((todos?.length || 0) / limitQuery);
+  const totalPages = Math.ceil((todos?.length || 0) / parseInt(limit));
 
-  const handleChangePage = (page: number) => {
-    dispatch(todosActions.setPageQuery(page));
-  };
-
-  const handleChangeLimit = (limit: number) => {
-    dispatch(todosActions.setLimitQuery(limit));
+  const handleChangePagination = (query: { [K: string]: string }) => {
+    dispatch(todosActions.setQuery(query));
   };
 
   return {
     isLoading,
     totalPages,
-    currentPage: pageQuery,
-    handleChangePage,
-    handleChangeLimit,
+    currentPage: page,
+    handleChangePagination,
   };
 };
