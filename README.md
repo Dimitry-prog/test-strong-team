@@ -25,3 +25,10 @@ Stack
 - sass
 - prettier
 - eslint
+
+Features
+- CRUD
+- Search
+- Sorting
+- Pagination
+- Filters
